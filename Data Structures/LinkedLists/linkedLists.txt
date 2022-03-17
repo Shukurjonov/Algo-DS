@@ -1,0 +1,10 @@
+Linked lists various types
+Single linked list - Traversal of items can be done in the forward direction only
+Double liked list - Traversal of items can be done in both forward and backward directions. Nodes consist of an additional pointer known as prew, pointing ti the previous node.
+Circular liked lists - Linked lists where the prev pointer of the head points to the tail and the next pointer of the tail points to the head.
+
+Linked list operations 
+
+  Search: Find the first element with the key k in the fiven liked list by a siple linear search adn returns a pointer to this element
+  Insert: Insert a key ti the linked list. An insertion can be done i 3 different ways; insert at the beginning if the list, insert at the end of the list and insert in the middle of the list.
+  Delete: Remoces an element x from a given linked list. You cannot delere a node by a single step. A deletion can be done 3 different ways; delere from the beginning of the list, delete from the end o the list and delete from the end of the list and delere from the miffle of the list.
