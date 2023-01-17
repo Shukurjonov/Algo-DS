@@ -1,0 +1,55 @@
+// function maximumSubsequenceCount (text, pattern) {
+//     let firstCount = text.split('').filter(el => el == pattern[0]).length;
+//     let secondCount = text.split('').filter(el => el == pattern[1]).length;
+//     return Math.max((firstCount + 1 ) * secondCount, firstCount * (secondCount + 1));
+// };
+
+
+// function maximumSubsequenceCount (text, pattern) {
+//   let newText = '';
+//   for (let el of text) {
+//       if (pattern.includes(el)) newText += el;
+//   }
+//   console.log(newText)
+//   let patternTrue = newText.split(pattern);
+//   let tCount = patternTrue.join('').split('').filter(el => el == pattern[1]).length;
+//   console.log(tCount)
+//   console.log(patternTrue)
+
+//   let patternReverse = newText.split(pattern.split('').reverse().join(''));
+//   console.log(patternReverse)
+//   let rCount = patternReverse.join('').split('').filter(el => el == pattern[0]).length;
+//   console.log(rCount)
+
+
+
+//   return ;
+// };
+
+
+
+var maximumSubsequenceCount = function(text, pattern) {
+  const arrText = text.split("")
+  const lengthP0 = arrText.filter(x => x === pattern[0]).length    
+  const lengthP1 = arrText.filter(x => x === pattern[1]).length
+  const [c1, c2, lengthmax] = lengthP0 <= lengthP1 ? [...pattern, lengthP1]: [pattern[1], pattern[0], lengthP0]
+  let newText = lengthP0 <= lengthP1 ? [c1,...arrText]: [...arrText, c1]
+  newText = lengthP0 <= lengthP1 ? newText : newText.reverse()
+
+  let i = 0;
+  let count = 0;
+  let countmax = lengthmax
+  while(i < newText.length) {
+      if(newText[i] === c1) {
+          count += countmax
+      }
+      if(newText[i] === c2) {
+          countmax--
+      }
+      i++;
+  }
+  return count
+};
+
+
+console.log(maximumSubsequenceCount("iekbksdsmuuzwxbpmcngsfkjvpzuknqgupzvzikpp", "mp"))
